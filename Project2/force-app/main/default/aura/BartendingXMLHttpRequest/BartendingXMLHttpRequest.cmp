@@ -1,0 +1,27 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	<!-- Cocktail Name to send Cocktail API to get more information -->
+    <aura:attribute name="strDrink" type="String" access="global" default="vodka" />
+
+    <!-- Message information for ui:message component -->
+    <aura:attribute name="msg" type="String" default=""/>
+    <aura:attribute name="msgSeverity" type="String" />
+    <aura:attribute name="msgTitle" type="String" />
+
+    <!-- Add utils component to use aura:method -->
+    <c:Bartending aura:id="bartending" />
+
+    <div class="slds">
+        <!-- User input to ask for address and API key if needed -->
+        <lightning:input type="text" label="Cocktail Name" name="{!v.strDrink}" value="{!v.strDrink}" />
+        
+        <!-- Send request to Rapid API on button click -->
+        <lightning:button label="Call Ajax" onclick="{!c.buttonPress}" />
+
+        <!-- Display errors or return text on success -->
+        <aura:if isTrue="{! v.msg != '' }">
+            <ui:message severity="{!msgSeverity}" title="{!v.msgTitle}">
+                {!v.msg}
+            </ui:message>
+        </aura:if>
+    </div>
+</aura:component>

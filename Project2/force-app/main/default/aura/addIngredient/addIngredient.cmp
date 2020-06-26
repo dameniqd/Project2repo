@@ -1,0 +1,115 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+  access="global"
+  controller="IngredientsController"
+>
+  <aura:handler name="init" value="{! this }" action="{! c.doInit }" />
+
+  <!-- this is to refresh the list once the record is saved! -->
+  <aura:handler event="force:showToast" action="{! c.doInit }" />
+
+  <aura:attribute name="ingredientsData" type="Ingredient__c[]" />
+  <aura:attribute name="newRec" type="boolean" default="false" />
+  <aura:attribute name="showList" type="boolean" default="true" />
+
+  <aura:attribute
+    name="strIngredient"
+    type="String"
+    access="global"
+    default="vodka"
+  />
+  <aura:attribute
+    name="strDescription"
+    type="String"
+    access="global"
+    default=""
+  />
+      <aura:attribute
+    name="idIngredient"
+    type="String"
+    access="global"
+    default=""
+  />
+      <aura:attribute
+    name="strType"
+    type="String"
+    access="global"
+    default=""
+  />
+
+  <aura:if isTrue="{!v.showList}">
+    <lightning:card title="Ingredients List">
+      <aura:set attribute="actions">
+        <lightning:button label="Add Ingredient" onclick="{! c.handleCreate }" />
+      </aura:set>
+      <p class="slds-p-horizontal_small">
+        <table>
+          <tr> <th>Name</th> <th>Id</th> <th>Type</th><th>Description</th></tr>
+          <aura:iteration items="{! v.ingredientsData }" var="item">
+            <tr>
+              <td> {! item.Name} </td>
+                              <td> {! item.idIngredient__c } </td>
+                <td> {! item.strType__c} </td>
+                <td> {! item.strDescription__c } </td>
+
+                
+            </tr>
+          </aura:iteration>
+        </table>
+      </p>
+    </lightning:card>
+  </aura:if>
+  <aura:if isTrue="{!v.newRec}">
+      <lightning:card
+      title="New Ingredient"
+      class="slds-var-m-around_xx-large slds-var-p-around_xx-large"
+    >
+      <lightning:recordEditForm
+        onsuccess="{!c.handleShowList}"
+        objectApiName="Ingredient__c"
+      >
+        <!-- the messages component is for error messages -->
+        <lightning:messages />
+        <lightning:input
+          type="text"
+          label="Ingredient Name"
+          name="{!v.strIngredient}"
+          value="{!v.strIngredient}"
+        />
+                <br/>
+      <br/>
+      <br/>
+      <br/>
+        <lightning:inputField
+          fieldName="Name"
+          value="{!v.strIngredient}"
+        />
+        <lightning:inputField
+          fieldName="strDescription__c"
+          value="{!v.strDescription}"
+        />
+                <lightning:inputField
+          fieldName="strType__c"
+          value="{!v.strType}"
+        />
+                <lightning:inputField
+          fieldName="idIngredient__c"
+          value="{!v.idIngredient}"
+        />
+        <div class="slds-m-top_medium">
+          <lightning:button
+            label="Find Ingredient"
+            variant="brand"
+            onclick="{!c.buttonPress}"
+          />
+          <lightning:button
+            variant="brand"
+            type="submit"
+            name="save"
+            label="Save"
+          />
+        </div>
+      </lightning:recordEditForm>
+    </lightning:card>
+  </aura:if>
+</aura:component>

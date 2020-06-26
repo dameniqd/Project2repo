@@ -1,0 +1,55 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" >
+    <aura:attribute name = "Name" type = "String"/>
+    <aura:attribute name = "Category" type = "String"/>
+    <aura:attribute name = "Alcoholic" type = "String"/>
+    <aura:attribute name = "Glass" type = "String"/>
+    <aura:attribute name = "Instructions" type = "String"/>
+    <aura:attribute name = "Thumbnail" type = "String"/>
+    <aura:attribute name = "Ingredients" type = "String[]"/>
+    <aura:attribute name = "Measures" type = "String[]"/>
+    <lightning:button label="Get Cocktail" variant="brand" onclick="{!c.getCocktail}"/>
+    <lightning:card iconName="standard:account" title="Random Cocktail" >
+        <figure class="slds-image slds-image--card">
+            <a>
+                <img style = "max-width: 25% " src="{!v.Thumbnail}" alt="Thumbnail"/>
+            </a>
+            <figcaption class="slds-image__title slds-image__title--card">
+                <span class="slds-image__text slds-truncate" title="Image Title">{!v.Name}</span>
+            </figcaption>
+        </figure>
+        <div class="slds-p-horizontal--small">
+            <p class="slds-text-heading--small">
+                Cocktail Name: {!v.Name}
+            </p>
+            <p class="slds-text-heading--small">
+                Category: {!v.Category}</p>
+            <p class="slds-text-heading--small">
+                Is it Alcoholic? : {!v.Alcoholic}</p>
+            <p class="slds-text-heading--small">
+                Glass Used: {!v.Glass}</p>
+            <p class="slds-text-heading--small">
+                Instructions: {!v.Instructions}</p>
+            <p class="slds-text-heading--small">
+                <table>
+                    <tr>
+                        <th>Ingredient</th>
+                        <th>Measurement</th>
+                    </tr>
+                    <tr>
+                        <td>                
+                            <aura:iteration items = "{!v.Ingredients}" var = "item">
+                                {!item} <br/>
+                            </aura:iteration>
+                        </td>
+                        <td>
+                            <aura:iteration items = "{!v.Measures}" var = "item2">
+                                {!item2}<br/>
+                            </aura:iteration>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            
+        </div>
+    </lightning:card>
+</aura:component>

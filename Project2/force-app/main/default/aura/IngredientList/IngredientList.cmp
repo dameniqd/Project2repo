@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute name = "ingredients" access = 'global' type = "Ingredient__c[]"/>
+	<lightning:button label="Find Drink" variant="brand" onclick="{!c.buttonPress}"/>
+    <aura:iteration items = "{!v.ingredients}" var = "item" >
+    	{!item}
+    
+    </aura:iteration>
+
+</aura:component>

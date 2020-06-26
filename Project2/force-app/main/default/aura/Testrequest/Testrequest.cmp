@@ -1,0 +1,31 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">  
+    <aura:attribute name = "listDrink" type= "Object"/>
+    <aura:attribute name = "url" type = "String"/>
+    <aura:attribute name = "value" type="String"/>
+    
+    <!-- Display the new drink form -->
+        <lightning:card iconName="standard:account" title="Search for drink in API using filters">
+            <div class="slds-p-horizontal--small">
+                <br/>
+                <lightning:select name="select1" label="Search By..." value  = "{!v.url}" required="true">
+                    <option value="filter.php?i=">Ingredient</option>
+                    <option value="filter.php?a=">Alcoholic</option>
+                    <option value="filter.php?c=">Category</option>
+                </lightning:select>
+                <br/>
+                <lightning:input name= "search" label = "Value" value = "{!v.value}"/>
+                <br/>
+                <lightning:button label="Find Drink" variant="brand" onclick="{!c.buttonPress}"/>
+            </div>
+        </lightning:card>
+        <table>
+            <tr><th>Drink Name</th> <th>Id </th></tr>
+            <aura:iteration items = "{!v.listDrink}" var = "item">
+                <tr>
+                    <td>{!item.strDrink}</td>
+                    <td>{!item.idDrink}</td>
+                </tr>	
+                
+            </aura:iteration>
+        </table>
+</aura:component>

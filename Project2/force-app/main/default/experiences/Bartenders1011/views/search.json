@@ -1,0 +1,54 @@
+{
+  "appPageId" : "c240461b-f4c0-4654-b7c9-7d4a1238a060",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "0ce87904-73c0-43af-b14f-850ff8d0f6df",
+  "label" : "Search",
+  "regions" : [ {
+    "id" : "fa091603-968e-4624-a944-0f6847eefed7",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "scopes" : [ {
+          "name" : "FeedPost",
+          "isPublic" : true
+        }, {
+          "name" : "KnowledgeArticleVersion",
+          "isPublic" : true
+        }, {
+          "name" : "Case",
+          "isPublic" : false
+        }, {
+          "name" : "Drink__c",
+          "isPublic" : true
+        } ],
+        "searchResultFiltering" : true,
+        "searchTerm" : "{!term}",
+        "showTopResults" : true
+      },
+      "componentName" : "forceCommunity:search",
+      "id" : "7407e790-c365-4b2e-b441-606ab1b3b70f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:SearchDrink",
+      "id" : "6b827438-c4a9-44ff-a071-60a5b724f11f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "815e284f-cf34-424a-ae92-cd6324c1d25a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c184da5f-98ac-4dc2-a8c2-9435f118bcfa",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "global-search"
+}
