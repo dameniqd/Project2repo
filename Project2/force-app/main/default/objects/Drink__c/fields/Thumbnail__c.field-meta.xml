@@ -3,8 +3,9 @@
     <fullName>Thumbnail__c</fullName>
     <externalId>false</externalId>
     <label>Thumbnail</label>
-    <length>32768</length>
+    <length>100</length>
+    <required>false</required>
     <trackTrending>false</trackTrending>
-    <type>Html</type>
-    <visibleLines>25</visibleLines>
+    <type>Text</type>
+    <unique>false</unique>
 </CustomField>

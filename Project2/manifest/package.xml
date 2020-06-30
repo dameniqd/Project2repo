@@ -1,67 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>*</members>
-		<name>ApexClass</name>
+		<members>Case.Cocktail Support Process</members>
+		<name>BusinessProcess</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>ApexComponent</name>
+		<name>CspTrustedSite</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>ApexPage</name>
+		<name>DataCategoryGroup</name>
+	</types>
+	<types>
+		<members>Case.Case Escalation</members>
+		<name>EscalationRule</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>ApexTestSuite</name>
+		<name>Flow</name>
+	</types>
+	<types>
+		<members>Account-Account %28Bartenders101%29</members>
+		<members>CommunityMemberLayout-Community Member Layout</members>
+		<members>Drink__c-Drink Layout</members>
+		<members>Ingredient__c-Ingredient Layout</members>
+		<members>Ingredients_List__c-Ingredients List Layout</members>
+		<members>Knowledge__kav-Knowledge Layout</members>
+		<members>Knowledge__kav-Lightning Knowledge FAQ Layout</members>
+		<name>Layout</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>ApexTrigger</name>
+		<name>ManagedTopics</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>AuraDefinitionBundle</name>
-	</types>
-	<types>
-		<members>Drink__c</members>
-		<members>Ingredient__c</members>
-		<members>Ingredients_List__c</members>
-		<name>CustomObject</name>
+		<name>PermissionSet</name>
 	</types>
 	<types>
 		<members>*</members>
-		<name>ExperienceBundle</name>
+		<name>Queue</name>
 	</types>
 	<types>
-		<members>*</members>
-		<name>LightningComponentBundle</name>
+		<members>AddNewCocktail</members>
+		<members>DrinkSupportButton</members>
+		<members>GuestCommunityCase</members>
+		<members>NewCommunityCase</members>
+		<name>QuickAction</name>
 	</types>
 	<types>
-		<members>Admin</members>
-		<members>Authenticated Website</members>
-		<members>Bartenders101 Profile</members>
-		<members>Customer Community Login User</members>
-		<members>Customer Community Plus Login User</members>
-		<members>Customer Community Plus User</members>
-		<members>Customer Community User</members>
-		<members>Customer Portal Manager Custom</members>
-		<members>Customer Portal Manager Standard</members>
-		<members>External Identity User</members>
-		<members>Guest</members>
-		<members>High Volume Customer Portal User</members>
-		<members>HighVolumePortal</members>
-		<members>Identity User</members>
-		<members>Partner App Subscription User</members>
-		<members>Partner Community Login User</members>
-		<members>Partner Community User</members>
-		<members>Standard</members>
-		<name>Profile</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>StaticResource</name>
+		<members>Bartenders101CustomerUser</members>
+		<name>Role</name>
 	</types>
 	<version>48.0</version>
 </Package>

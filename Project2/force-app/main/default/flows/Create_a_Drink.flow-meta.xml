@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <choices>
+        <name>Alcoholic</name>
+        <choiceText>Alcoholic</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Alcoholic</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>NonAlcoholic</name>
+        <choiceText>Non-Alcoholic</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Non-Alcoholic</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>OptionalAlcohol</name>
+        <choiceText>Optional Alcohol</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Optional Alcohol</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>New_Drink_Decision</name>
+        <label>New Drink Decision</label>
+        <locationX>398</locationX>
+        <locationY>394</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Cocktail</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewDrinktoggle.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>New_Drink</targetReference>
+            </connector>
+            <label>New Cocktail</label>
+        </rules>
+        <rules>
+            <name>No_New_Drink</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewDrinktoggle.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Finished_Screen</targetReference>
+            </connector>
+            <label>No New Drink</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Create a Drink {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create a Drink</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>NewDrink</name>
+        <label>New Drink</label>
+        <locationX>543</locationX>
+        <locationY>65</locationY>
+        <connector>
+            <targetReference>New_Drink_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Alcoholic__c</field>
+            <value>
+                <elementReference>Is_it_Alcoholic_Non_Alcoholic_or_Optional_Alcohol</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Category__c</field>
+            <value>
+                <elementReference>Drink_Category</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Glass__c</field>
+            <value>
+                <elementReference>Glass_Type</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IngreMeas__c</field>
+            <value>
+                <elementReference>Ingredients_and_Measurements</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Instructions__c</field>
+            <value>
+                <elementReference>Instructions</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Cocktail_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Thumbnail__c</field>
+            <value>
+                <elementReference>Thumbnail_URL</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>idDrink__c</field>
+            <value>
+                <elementReference>Drink_Id_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Drink__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <screens>
+        <name>Finished_Screen</name>
+        <label>Finished Screen</label>
+        <locationX>768</locationX>
+        <locationY>295</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>ThankyouText</name>
+            <fieldText>&lt;p&gt;Thank You From Bartenders101&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;https://resourceful-otter-l1nc6h-dev-ed--c.documentforce.com/sfc/servlet.shepherd/version/download/0683h000002PLkS?asPdf=false&amp;amp;operationContext=CHATTER&quot;&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>General Drink Info</description>
+        <name>General_Info</name>
+        <label>General Info</label>
+        <locationX>274</locationX>
+        <locationY>68</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Recipe</targetReference>
+        </connector>
+        <fields>
+            <name>GeneralText</name>
+            <fieldText>&lt;p&gt;Let&apos;s first add some general information about your cocktail. &lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Cocktail_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Cocktail Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Drink_Id_Number</name>
+            <dataType>Number</dataType>
+            <fieldText>Drink Id Number</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;This Number must be unique and not already be in our database. &lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+        </fields>
+        <fields>
+            <name>Is_it_Alcoholic_Non_Alcoholic_or_Optional_Alcohol</name>
+            <choiceReferences>Alcoholic</choiceReferences>
+            <choiceReferences>NonAlcoholic</choiceReferences>
+            <choiceReferences>OptionalAlcohol</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Is it Alcoholic, Non-Alcoholic or Optional Alcohol?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>New_Drink</name>
+        <label>New Drink</label>
+        <locationX>134</locationX>
+        <locationY>59</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>General_Info</targetReference>
+        </connector>
+        <fields>
+            <name>Question</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;Wanna add your own drinks into the database for others to learn? Click NEXT and we will guide you through the process of adding your cocktail recipes. &lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>New_Drink_Screen</name>
+        <label>New Drink Screen</label>
+        <locationX>683</locationX>
+        <locationY>64</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>New_Drink_Decision</targetReference>
+        </connector>
+        <fields>
+            <name>QuestionText</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;Your New Cocktail has been added to the database. Thank you for you addition to our vault of drinks. Would you like to add another?&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>NewDrinktoggle</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>Yes</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>No</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>value</name>
+                <value>
+                    <elementReference>NewDrinktoggle.value</elementReference>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Optional_Information</name>
+        <label>Optional Information</label>
+        <locationX>446</locationX>
+        <locationY>61</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>NewDrink</targetReference>
+        </connector>
+        <fields>
+            <name>OptionalText</name>
+            <fieldText>&lt;p&gt;Please add any other information about your cocktail. For example, a URL to a image of the cocktail or the drinks category. &lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Thumbnail_URL</name>
+            <dataType>String</dataType>
+            <fieldText>Thumbnail URL</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Drink_Category</name>
+            <dataType>String</dataType>
+            <fieldText>Drink Category</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;For example, Shot, Cocktail, Beer, etc.  &lt;/p&gt;</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Recipe</name>
+        <label>Recipe</label>
+        <locationX>370</locationX>
+        <locationY>68</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Optional_Information</targetReference>
+        </connector>
+        <fields>
+            <name>RecipeText</name>
+            <fieldText>&lt;p&gt;Now, Let&apos;s add the actual recipe for your cocktail. &lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Ingredients_and_Measurements</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <stringValue>** Ingredient , Measurement**</stringValue>
+            </defaultValue>
+            <fieldText>Ingredients and Measurements</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;Please Enter all the ingredients followed by their respective measurements. &lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Instructions</name>
+            <fieldText>Instructions</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>&lt;p&gt;Please add the instructions for the cocktail. &lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Glass_Type</name>
+            <dataType>String</dataType>
+            <fieldText>Glass Type</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;Please enter what type of glass is used for the cocktail. &lt;/p&gt;</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <helpText>&lt;p&gt;Please add all the cocktail&apos;s ingredients with their respective measurements. &lt;/p&gt;</helpText>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>New_Drink</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

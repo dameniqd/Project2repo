@@ -1,49 +1,81 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"  >
+    
+    
+    <aura:attribute name="drinksData" type="Drink__c[]" />
+    <aura:attribute name="newRec" type="boolean" default="false" />
+    <aura:attribute name="showList" type="boolean" default="true" />
+    
     <aura:attribute name = "listDrink" type= "Object"/>
     <aura:attribute name = "url" type = "String"/>
     <aura:attribute name = "value" type="String"/>
     <aura:attribute name = "id" type = "String"/>
-    <aura:attribute name="drinksData" type="Drink__c[]" />
+    
+    <aura:attribute name="strDrink" type ="String"/>
+    <aura:attribute name="idDrink" type="String"/>
+    <aura:attribute name="strCategory" type="String"/>
+    <aura:attribute name="strDrinkThumb" type="String"/>
+    <aura:attribute name="strAlcoholic" type="String"/>
+    <aura:attribute name="strGlass" type="String"/>
+    <aura:attribute name="strInstructions" type="String"/>
+    <aura:attribute name="IngreMeas" type="String"/>
     
     <!-- Display the new drink form -->
-    <lightning:card iconName="standard:account" title="Search for drink in API using filters">
-        <div class="slds-p-horizontal--small">
-            <br/>
-            <lightning:select name="select1" label="Search By..." value  = "{!v.url}" required="true">
-                <option value="filter.php?i=">Ingredient</option>
-                <option value="filter.php?a=">Alcoholic</option>
-                <option value="filter.php?c=">Category</option>
-            </lightning:select>
-            <br/>
-            <table>
-                <tr>
-                    <th><lightning:input name= "search" label = "Value" value = "{!v.value}"/></th> 
-                    <th><lightning:input name= "drinkId" label = "Drink ID" value = "{!v.id}"/></th>
-                </tr>
-                <tr>
-                <td> <lightning:button label="Find Drink" variant="brand" onclick="{!c.buttonPress}"/></td>
-                <td> <lightning:button label="Add Drink" variant="brand" onclick="{!c.handleCreate}"/></td>
-            </tr>	
-            </table>           
-            <br/>
-        </div>
-        <table>
-        <tr><th>Drink Name</th> <th>Id </th></tr>
-        <aura:iteration items = "{!v.listDrink}" var = "item">
-            <tr>
-                <td>{!item.strDrink}</td>
-                <td>{!item.idDrink}</td>
-            </tr>	
-            
-        </aura:iteration>
-    </table>
-    </lightning:card>
-    <!-- Insert Drink to Database if User Desires-->
-            <lightning:inputField fieldName="Name" value="{!v.strDrink}"/>
-    <lightning:inputField fieldName="ID" value="{!v.idDrink}"/>
-    <lightning:inputField fieldName="Category" value="{!v.strCategory}"/>
-    <lightning:inputField fieldName="Thumbnail" value="{!v.strDrinkThumb}"/>
-    <lightning:inputField fieldName="Alcoholic" value="{!v.strAlcholic}"/>
-    <lightning:inputField fieldName="Glass" value="{!v.strGlass}"/>
-    <lightning:inputField fieldName="Instructions" value = "{!v.strInstructions}"/>
+    <aura:if isTrue="{!v.showList}">
+        <lightning:card title="Search for drink in API using filters">
+            <div class="slds-p-horizontal--small">
+                <lightning:select name="select1" label="Search By..." value  = "{!v.url}" required="true">
+                    <option value="filter.php?i=">Ingredient</option>
+                    <option value="filter.php?a=">Alcoholic</option>
+                    <option value="filter.php?c=">Category</option>
+                </lightning:select>
+                <lightning:input name= "search" label = "Value" value = "{!v.value}"/>
+                
+                <lightning:button label="Find Drink" variant="brand" onclick="{!c.buttonPress}"/>
+                
+                <table>
+                    <tr>
+                        <th>Add</th>
+                        <th>Drink Name</th> 
+                        <th>Id </th>
+                    </tr>
+                    <aura:iteration items = "{!v.listDrink}" var = "item">
+                        <tr>
+                            <td>
+                                <a data-record="{!item.idDrink}" onclick="{!c.handleCreate}">add</a>
+                            </td>
+                            <td>
+                                {!item.strDrink}
+                            </td>
+                            <td>
+                                {!item.idDrink}
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </table> 
+            </div>
+        </lightning:card>  
+    </aura:if>
+    
+    <aura:if isTrue="{!v.newRec}">
+        <lightning:card title="New Drink" class="slds-var-m-around_xx-large slds-var-p-around_xx-large">
+            <lightning:recordEditForm
+                                      onsuccess="{!c.handleShowList}"
+                                      objectApiName="Drink__c">
+                <!-- the messages component is for error messages -->
+                <lightning:messages />
+                
+                <lightning:inputField fieldName="Name" value="{!v.strDrink}"/>
+                <lightning:inputField fieldName="idDrink__c" value="{!v.idDrink}"/>
+                <lightning:inputField fieldName="Category__c" value="{!v.strCategory}"/>
+                <lightning:inputField fieldName="Alcoholic__c" value="{!v.strAlcoholic}"/>
+                <lightning:inputField fieldName="Thumbnail__c" value="{!v.strDrinkThumb}"/>
+                <lightning:inputField fieldName="Glass__c" value="{!v.strGlass}"/>
+                <lightning:inputField fieldName="Instructions__c" value = "{!v.strInstructions}"/>
+                <lightning:inputField fieldName="IngreMeas__c" value = "{!v.IngreMeas}"/>
+                <div class="slds-m-top_medium">
+                    <lightning:button variant="brand" type="submit" name="save" label="Save" />
+                </div>
+            </lightning:recordEditForm> 
+        </lightning:card>
+    </aura:if>
 </aura:component>

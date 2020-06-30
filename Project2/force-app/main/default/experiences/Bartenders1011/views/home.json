@@ -1,6 +1,6 @@
 {
   "appPageId" : "c240461b-f4c0-4654-b7c9-7d4a1238a060",
-  "componentName" : "siteforce:sldsOneColLayout",
+  "componentName" : "siteforce:sldsTwoCol84SidebarFeaturedLayout",
   "id" : "0d16c81d-0ace-4ea0-8064-393f24522818",
   "label" : "Home",
   "regions" : [ {
@@ -12,13 +12,6 @@
       "componentAttributes" : { },
       "componentName" : "c:addIngredient",
       "id" : "2b9355a2-829f-4063-8b39-d6a635a3b19b",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : { },
-      "componentName" : "c:RandomCocktail",
-      "id" : "1244eebd-8f6c-495a-9611-b6047d8ba930",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -44,6 +37,34 @@
     } ],
     "id" : "2315fe76-8e5c-485d-a358-116e574e9c10",
     "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowLayout" : "oneColumn",
+        "flowName" : "Create_a_Drink"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "e1061e71-95c7-4044-adab-fcfddf3df559",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4145a2ab-b2d9-489d-8065-437e6405e95f",
+    "regionName" : "featured",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:RandomCocktail",
+      "id" : "1244eebd-8f6c-495a-9611-b6047d8ba930",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9e728427-3ebc-4cd9-beca-1ffbf9bccb9d",
+    "regionName" : "sidebar",
     "type" : "region"
   } ],
   "themeLayoutType" : "Home",

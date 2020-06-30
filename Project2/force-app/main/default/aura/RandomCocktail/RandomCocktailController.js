@@ -7,7 +7,6 @@
         
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === this.DONE) {
-                console.log(this.responseText);
                 var myobj = JSON.parse(this.responseText);
                 component.set("v.Name", myobj.drinks[0]["strDrink"]);
                 component.set("v.Category", myobj.drinks[0]["strCategory"]);
@@ -25,7 +24,7 @@
                 ,myobj.drinks[0]["strMeasure12"],myobj.drinks[0]["strMeasure13"],myobj.drinks[0]["strMeasure14"],myobj.drinks[0]["strMeasure15"]];
                 component.set("v.Ingredients", list);
                 component.set("v.Measures", list2);
-                
+           
             }
         });
         

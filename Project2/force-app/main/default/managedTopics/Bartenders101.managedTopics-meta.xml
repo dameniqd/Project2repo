@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedTopics xmlns="http://soap.sforce.com/2006/04/metadata">
+    <managedTopic>
+        <fullName>Bartenders101.Content:Equipment</fullName>
+        <managedTopicType>Content</managedTopicType>
+        <name>Equipment</name>
+        <parentName/>
+        <position>1</position>
+        <topicDescription>Ask and answer questions regarding the equipment and ingredients used while creating drinks.</topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Bartenders101.Content:Technique</fullName>
+        <managedTopicType>Content</managedTopicType>
+        <name>Technique</name>
+        <parentName/>
+        <position>0</position>
+        <topicDescription>Ask and answer questions regarding the best techniques and advice for making cocktails and providing the best customer service.</topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Bartenders101.Featured:Equipment</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Equipment</name>
+        <parentName/>
+        <position>1</position>
+        <topicDescription>Ask and answer questions regarding the equipment and ingredients used while creating drinks.</topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Bartenders101.Featured:Technique</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Technique</name>
+        <parentName/>
+        <position>0</position>
+        <topicDescription>Ask and answer questions regarding the best techniques and advice for making cocktails and providing the best customer service.</topicDescription>
+    </managedTopic>
+</ManagedTopics>

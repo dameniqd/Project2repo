@@ -1,6 +1,6 @@
 {
   "appPageId" : "c240461b-f4c0-4654-b7c9-7d4a1238a060",
-  "componentName" : "siteforce:sldsOneColLayout",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
   "id" : "0ce87904-73c0-43af-b14f-850ff8d0f6df",
   "label" : "Search",
   "regions" : [ {
@@ -33,9 +33,15 @@
       "renditionMap" : { },
       "type" : "component"
     }, {
-      "componentAttributes" : { },
-      "componentName" : "c:SearchDrink",
-      "id" : "6b827438-c4a9-44ff-a071-60a5b724f11f",
+      "componentAttributes" : {
+        "actions" : [ {
+          "name" : "DrinkSupportButton",
+          "isPublic" : true
+        } ],
+        "label" : "Contact Support"
+      },
+      "componentName" : "forceCommunity:createRecordButton",
+      "id" : "d6969de5-5a13-4002-a282-cd01f0b6b9a5",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -46,6 +52,18 @@
   }, {
     "id" : "c184da5f-98ac-4dc2-a8c2-9435f118bcfa",
     "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:SearchDrink",
+      "id" : "6b827438-c4a9-44ff-a071-60a5b724f11f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "10cc1868-fe9d-42db-9100-93e98a94fbe1",
+    "regionName" : "sidebar",
     "type" : "region"
   } ],
   "themeLayoutType" : "Inner",

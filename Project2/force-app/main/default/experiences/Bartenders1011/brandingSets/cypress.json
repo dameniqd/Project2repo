@@ -4,25 +4,25 @@
   "label" : "Cypress",
   "type" : "brandingSet",
   "values" : {
-    "ActionColor" : "rgb(232, 190, 8)",
-    "BorderColor" : "#F4F4F4",
+    "ActionColor" : "#e8be08",
+    "BorderColor" : "rgb(141, 142, 129)",
     "CardBackgroundColor" : "rgba(255, 255, 255, 0)",
     "CompanyLogo" : "/file-asset/Bartenders101?v=1&height=300&width=300",
-    "DetailTextColor" : "#696969",
+    "DetailTextColor" : "rgb(5, 5, 5)",
     "ErrorFontColor" : "#ff9e9e",
     "HeaderFonts" : "Montserrat",
     "LinkColor" : "#2b2a2b",
     "LoginBackgroundColor" : "#F4F4F4",
     "LoginBackgroundImage" : "../../../../sfsites/picasso/core/external/salesforceIdentity/images/background.jpg?v=1",
-    "OverlayTextColor" : "#FFFFFF",
-    "PageBackgroundColor" : "rgb(0, 0, 0)",
+    "OverlayTextColor" : "rgb(7, 7, 7)",
+    "PageBackgroundColor" : "rgb(120, 120, 115)",
     "PrimaryFont" : "Lato",
-    "TextColor" : "#333",
+    "TextColor" : "rgb(7, 7, 7)",
     "TextTransformStyle" : "none",
     "_ActionColorDarker" : "#b79606",
     "_ActionColorTrans" : "rgba(232, 190, 8, 0.9)",
     "_HoverColor" : "rgba(232, 190, 8, 0.05)",
     "_LinkColorDarker" : "#161616",
-    "_OverlayTextColorShadow" : "#000"
+    "_OverlayTextColorShadow" : "#888"
   }
 }

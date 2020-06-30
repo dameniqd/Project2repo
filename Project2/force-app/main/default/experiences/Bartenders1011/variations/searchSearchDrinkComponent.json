@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "ea2836d1-d3e2-4c79-9d78-c5fae55f21b2",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "6b827438-c4a9-44ff-a071-60a5b724f11f",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Search_SearchDrink_Component",
+  "id" : "d21f1786-2c6c-46c0-ba8a-818c9da2d867",
+  "type" : "experienceVariation"
+}
